@@ -59,4 +59,3 @@ Boot sequence → interactive terminal → keyboard-navigable menu → typewrite
 
 ---
 
-## Project Structure
