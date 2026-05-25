@@ -17,6 +17,7 @@ const commandAliases = {
   3: "education",
   4: "projects",
   5: "skills",
+  6: "contact",
 };
 
 const autoCompleteCommands = [
@@ -25,6 +26,7 @@ const autoCompleteCommands = [
   "education",
   "projects",
   "skills",
+  "contact",
 ];
 
 const selectableOptions = [
@@ -33,12 +35,15 @@ const selectableOptions = [
   "education",
   "projects",
   "skills",
+  "contact",
 ];
 
 const externalLinks = {
   github: "https://github.com/nitishjha18",
   linkedin: "https://www.linkedin.com/in/nitishjha11/",
   gmail: "mailto:nitish11jha@gmail.com",
+  resume:
+    "https://drive.google.com/file/d/1G5jrw65oS_2kqP9I_4X9mk00HkPPjw4d/view?usp=sharing",
 };
 
 const helpLines = [
@@ -49,6 +54,7 @@ const helpLines = [
   { text: "[3] education      → academic background", command: "education" },
   { text: "[4] projects       → things i've built", command: "projects" },
   { text: "[5] skills         → technical stack", command: "skills" },
+  { text: "[6] contact        → get in touch", command: "contact" },
 ];
 
 const backToMenuLines = [
@@ -69,13 +75,15 @@ const commandOutput = {
     "> Name    : Nitish Jha",
     "> Role    : Full Stack Developer",
     "> Based   : Noida, U.P, India",
-    "> Status  : Open to opportunities (Backend-focused roles)",
+    "> Status  : Open to opportunities (Full Stack / Backend-focused roles)",
     "> Email   : nitish11jha@gmail.com",
-    "> Bio     : Full Stack Developer with hands-on internship experience building",
-    "            and shipping production-grade SaaS platforms. Skilled in JavaScript,",
-    "            TypeScript, Node.js, PostgreSQL, and REST API design — with practical",
-    "            exposure to AI integrations, automated pipelines, and role-based",
-    "            backend systems.",
+    "> Bio     : Full Stack Developer with hands-on internship experience",
+    "            building and shipping production-grade SaaS platforms.",
+    "            Skilled in JavaScript, TypeScript, Node.js, PostgreSQL,",
+    "            and REST API design — with practical exposure to AI",
+    "            integrations, automated pipelines, and role-based backend",
+    "            systems. Comfortable across the full stack from React/Next.js",
+    "            frontends to Express/PostgreSQL backends.",
   ],
   experience: [
     "> [Nov 2025 – Present]  Garage Collective — AI Trainee",
@@ -106,10 +114,27 @@ const commandOutput = {
     "                         JECRC University, India",
   ],
   projects: [
-    "> [01] expense-tracker",
-    "       Solo full-stack expense management system with 3-tier RBAC model",
-    "       (Admin → Department Lead → Employee) with approval routing workflows.",
-    "       stack : Node.js · Express.js · MongoDB · React.js · Redux Toolkit · JWT · Tailwind",
+    {
+      text: "> [01] job-tracker                              [in development]",
+      dimText: "[in development]",
+    },
+    "       Smart job application tracker for students and freshers —",
+    "       Kanban board, AI resume analysis vs job descriptions,",
+    "       interview prep questions, and follow-up email reminders.",
+    "       stack : Next.js · React · TypeScript · Express · Prisma ·",
+    "               PostgreSQL · Clerk · Gemini AI · Resend",
+    {
+      text: "       link  : [view →]",
+      linkText: "[view →]",
+      href: "https://github.com/nitishjha18/job-tracker",
+    },
+    "",
+    "> [02] expense-tracker",
+    "       Solo full-stack expense management system with 3-tier RBAC",
+    "       model (Admin → Department Lead → Employee) with approval",
+    "       routing workflows and 15+ REST API endpoints.",
+    "       stack : Node.js · Express.js · MongoDB · React.js ·",
+    "               Redux Toolkit · JWT · Tailwind · Zod",
     "       date  : Sep 2025",
     {
       text: "       link  : [view →]",
@@ -117,47 +142,85 @@ const commandOutput = {
       href: "https://github.com/nitishjha18/Expense-Tracker",
     },
     "",
-    "> [02] scholar-circle",
-    "       Solo full-stack article publishing platform using Appwrite as BaaS —",
-    "       secure auth, TinyMCE rich text editing, image uploads, full CRUD.",
-    "       stack : React.js · Appwrite · TinyMCE · Redux Toolkit · Tailwind · Vite",
+    "> [03] scholar-circle",
+    "       Solo full-stack article publishing platform using Appwrite",
+    "       as BaaS — secure auth, TinyMCE rich text editing, image",
+    "       uploads, full CRUD, deployed on Vercel.",
+    "       stack : React.js · Appwrite · TinyMCE · Redux Toolkit ·",
+    "               Tailwind · Vite",
     "       date  : Jul 2025",
     {
       text: "       link  : [view →]",
       linkText: "[view →]",
+      href: "https://scholar-circle-psi.vercel.app/",
+    },
+    {
+      text: "       repo  : [repo →]",
+      linkText: "[repo →]",
       href: "https://github.com/nitishjha18/Scholar-Circle",
     },
     "",
-    "> [03] portfolio-os",
-    "       This terminal — a Matrix-inspired interactive CLI portfolio with boot",
-    "       sequence, keyboard navigation, and typewriter animations.",
+    "> [04] portfolio-os",
+    "       This terminal — a Matrix-inspired interactive CLI portfolio",
+    "       with boot sequence, keyboard navigation, and typewriter",
+    "       animations.",
     "       stack : HTML · CSS · Vanilla JS",
     {
       text: "       link  : [view →]",
       linkText: "[view →]",
-      href: "https://github.com/nitishjha18/portfolio-website",
+      href: "https://nitishjha.dev",
     },
   ],
   skills: [
-    "Languages   JavaScript · TypeScript · Java · HTML · CSS",
+    "Languages     JavaScript · TypeScript · Java · HTML · CSS",
     "",
-    "Frontend    React.js · Next.js · Redux Toolkit · Tailwind CSS · Vite · React Router DOM",
+    "Frontend      React.js · Next.js · Redux Toolkit · Tailwind CSS ·",
+    "              Vite · React Router DOM",
     "",
-    "Backend     Node.js · Express.js · REST API Design · Zod · Prisma ORM · Rate Limiting",
+    "Backend       Node.js · Express.js · REST API Design · Zod ·",
+    "              Prisma ORM · Rate Limiting",
     "",
-    "Database    MongoDB · PostgreSQL · Supabase",
+    "Database      MongoDB · PostgreSQL · Supabase",
     "",
-    "DevOps      Git · GitHub · Vercel · GitHub Actions · Postman · Playwright · Puppeteer",
+    "AI & Auto     OpenAI API · Claude API · Prompt Engineering ·",
+    "              Web Scraping · GitHub Actions · Playwright · Puppeteer",
     "",
-    "Auth        JWT · Google OAuth · Supabase Auth · Clerk · NextAuth.js",
+    "DevOps        Git · GitHub · Vercel · Postman",
+    "",
+    "Auth          JWT · Google OAuth · Supabase Auth · Clerk ·",
+    "              NextAuth.js",
     "",
     "Proficiency bars:",
-    "JavaScript/TS   [█████████░]  90%",
-    "React / Next.js [████████░░]  82%",
-    "Node / Express  [████████░░]  80%",
-    "PostgreSQL      [███████░░░]  72%",
-    "REST API Design [█████████░]  88%",
-    "DevOps / CI-CD  [██████░░░░]  62%",
+    "JavaScript/TS    [█████████░]  90%",
+    "React / Next.js  [████████░░]  82%",
+    "Node / Express   [████████░░]  80%",
+    "PostgreSQL       [███████░░░]  72%",
+    "REST API Design  [█████████░]  88%",
+    "AI & Automation  [███████░░░]  75%",
+    "DevOps / CI-CD   [██████░░░░]  62%",
+  ],
+  contact: [
+    {
+      text: "> email      : nitish11jha@gmail.com",
+      linkText: "nitish11jha@gmail.com",
+      href: "mailto:nitish11jha@gmail.com",
+    },
+    {
+      text: "> linkedin   : linkedin.com/in/nitishjha11",
+      linkText: "linkedin.com/in/nitishjha11",
+      href: "https://www.linkedin.com/in/nitishjha11/",
+    },
+    {
+      text: "> github     : github.com/nitishjha18",
+      linkText: "github.com/nitishjha18",
+      href: "https://github.com/nitishjha18",
+    },
+    {
+      text: "> resume     : [download →]",
+      linkText: "[download →]",
+      href: "https://drive.google.com/file/d/1G5jrw65oS_2kqP9I_4X9mk00HkPPjw4d/view?usp=sharing",
+    },
+    "> available  : open to full stack / backend roles",
   ],
 };
 
@@ -288,9 +351,13 @@ function makeInlineLink(line, item) {
 
   link.href = item.href;
   link.className = "inline-output-link";
-  link.target = "_blank";
   link.rel = "noreferrer";
   link.textContent = item.linkText;
+
+  if (!item.href.startsWith("mailto:")) {
+    link.target = "_blank";
+  }
+
   link.style.color = "#00ff41";
   link.style.textShadow =
     "0 0 6px rgba(0,255,65,0.7), 0 0 16px rgba(0,255,65,0.25)";
@@ -305,6 +372,7 @@ function makeInlineLink(line, item) {
 
   line.appendChild(link);
   line.append(after);
+  scrollTerminalToBottom();
 }
 
 async function renderLine(item) {
@@ -316,6 +384,19 @@ async function renderLine(item) {
   }
 
   line.dataset.text = text;
+
+  if (item.dimText) {
+    const [before, after = ""] = text.split(item.dimText);
+    const dimText = document.createElement("span");
+
+    await typeText(line, before);
+    dimText.className = "dim";
+    dimText.textContent = item.dimText;
+    line.append(dimText, after);
+    scrollTerminalToBottom();
+    await sleep(LINE_DELAY);
+    return;
+  }
 
   if (item.linkText) {
     const [before] = text.split(item.linkText);
