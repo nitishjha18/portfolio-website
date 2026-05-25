@@ -114,7 +114,7 @@ const commandOutput = {
     {
       text: "       link  : [view →]",
       linkText: "[view →]",
-      href: "#",
+      href: "https://github.com/nitishjha18/Expense-Tracker",
     },
     "",
     "> [02] scholar-circle",
@@ -125,7 +125,7 @@ const commandOutput = {
     {
       text: "       link  : [view →]",
       linkText: "[view →]",
-      href: "#",
+      href: "https://github.com/nitishjha18/Scholar-Circle",
     },
     "",
     "> [03] portfolio-os",
@@ -135,7 +135,7 @@ const commandOutput = {
     {
       text: "       link  : [view →]",
       linkText: "[view →]",
-      href: "#",
+      href: "https://github.com/nitishjha18/portfolio-website",
     },
   ],
   skills: [
@@ -288,10 +288,21 @@ function makeInlineLink(line, item) {
 
   link.href = item.href;
   link.className = "inline-output-link";
+  link.target = "_blank";
+  link.rel = "noreferrer";
   link.textContent = item.linkText;
-  link.addEventListener("click", (event) => event.preventDefault());
+  link.style.color = "#00ff41";
+  link.style.textShadow =
+    "0 0 6px rgba(0,255,65,0.7), 0 0 16px rgba(0,255,65,0.25)";
+  link.style.cursor = "pointer";
+  link.style.textDecoration = "none";
+  link.addEventListener("mouseenter", () => {
+    link.style.textDecoration = "underline";
+  });
+  link.addEventListener("mouseleave", () => {
+    link.style.textDecoration = "none";
+  });
 
-  line.textContent = before;
   line.appendChild(link);
   line.append(after);
 }
@@ -305,14 +316,19 @@ async function renderLine(item) {
   }
 
   line.dataset.text = text;
+
+  if (item.linkText) {
+    const [before] = text.split(item.linkText);
+    await typeText(line, before);
+    makeInlineLink(line, item);
+    await sleep(LINE_DELAY);
+    return;
+  }
+
   await typeText(line, text);
 
   if (item.command) {
     makeCommandLink(line, item);
-  }
-
-  if (item.linkText) {
-    makeInlineLink(line, item);
   }
 
   await sleep(LINE_DELAY);
